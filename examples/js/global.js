@@ -14,6 +14,18 @@ $(function () {
 			window.message = function (m) {
 				$notification.Qnotification('add', m);
 			};
+			
+			$notification.on('click', function () {
+				if (debug) console.log('Event: notification: close');
+			
+				var $this = $(this);
+				var $target = $this.find('.active');
+				if (!$target.length) {
+					if (debug) console.log('Event: notification: target not found');
+					return;
+				}
+				$target.find('.close_btn').click();
+			});
 		})();
 	}
 });

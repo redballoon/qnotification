@@ -17,7 +17,7 @@
 	var defaults = {
 		debug : false,
 		debug_lvl : 1,
-		plugin_name : 'Qnotification',
+		plugin_name : 'qnotification',
 		classname : {
 			container : 'notification_container',
 			wrapper : 'wrapper',
@@ -138,7 +138,8 @@
 			}
 			
 			// events
-			$close.on('click', function () {
+			$close.on('click.' + options.plugin_name, function (e) {
+				e.preventDefault();
 				methods._log('event: close button');
 				methods.close.call($this, $notification, data);
 			});
@@ -153,8 +154,6 @@
 			
 			// animate
 			return methods.transition.call($this, data);
-			
-			//return $this;
 		},
 		close : function (target, data, flag) {
 			methods._log('close:');
@@ -183,7 +182,7 @@
 			$target.fadeOut(options.speed, function () {
 				methods._log('close: complete');
 				$this.removeClass('transition');
-				$target.removeClass('active');
+				$target.remove();//$target.removeClass('active');
 				methods.transition.call($this, data);
 			});
 			

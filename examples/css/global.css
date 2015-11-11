@@ -26,6 +26,11 @@ html, body {
 	border: 1px solid transparent;
 	border-radius: 4px;
 	display: none;
+	color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #000;
+}
+.notification_container .notification.success {
 	color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;
