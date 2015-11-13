@@ -11,7 +11,7 @@
 /*
 * to-do:
 * - add ability to change the delay of each individual notification temporarily,
-* currently if you change the auto_close_delay then you change it for all notifications, last one sets it for all
+* currently if you change the delay then you change it for all notifications, last one sets it for all
 */
 (function ($) {
 	var defaults = {
@@ -27,7 +27,7 @@
 		},
 		speed : 800,
 		auto_close : true,
-		auto_close_delay : 1000,
+		delay : 1000,
 		animations : {}
 	};
 	
@@ -200,7 +200,7 @@
 				data.notification.timer = null;
 				$this.removeClass('sleep');
 				methods.close.call($this, null, data, 1);
-			}, data.options.auto_close_delay);
+			}, data.options.delay);
 			
 			methods._log('start_timer:', data.notification.timer);
 			
